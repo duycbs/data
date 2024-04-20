@@ -1,0 +1,269 @@
+repeat wait(5) until game:IsLoaded()
+
+getgenv().ChooseTeam = "Pirate"
+repeat wait() 
+until game:IsLoaded()
+repeat wait() until game.Players
+repeat wait()
+until game:IsLoaded() and game.Players.LocalPlayer
+repeat wait()
+until game:GetService("Players").LocalPlayer:FindFirstChild("DataLoaded")
+repeat wait() until game.Players.LocalPlayer:FindFirstChild("PlayerGui")
+repeat wait()
+    if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main"):FindFirstChild("ChooseTeam") then
+        if game:GetService("Players").LocalPlayer.PlayerGui:WaitForChild("Main"):FindFirstChild("ChooseTeam") then
+            if string.find(getgenv().ChooseTeam, "Pirate") then
+                for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do
+                    v.Function()
+                end 
+            elseif string.find(getgenv().ChooseTeam, "Marine")  then
+                for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Marines.Frame.ViewportFrame.TextButton.Activated)) do
+                    v.Function()
+                end 
+            else
+                for i,v in pairs(getconnections(game:GetService("Players").LocalPlayer.PlayerGui.Main.ChooseTeam.Container.Pirates.Frame.ViewportFrame.TextButton.Activated)) do
+                    v.Function()
+                end 
+            end
+        end 
+    end
+until game.Players.LocalPlayer.Team ~= nil and game:IsLoaded()
+wait(5)
+local RAMAccount = loadstring(game:HttpGet'https://raw.githubusercontent.com/duycbs/data/main/maner.txt')()
+
+local MyAccount = RAMAccount.new(game:GetService'Players'.LocalPlayer.Name)
+if MyAccount then
+function formatNumber(v)
+    local str = tostring(v)  -- Chuyển về chuỗi
+    return str:gsub(",", "")  -- Loại bỏ tất cả các dấu phẩy trong chuỗi
+end
+
+  function CheckItem(Item)
+    have = false
+    for i,v in pairs(game:GetService("ReplicatedStorage").Remotes["CommF_"]:InvokeServer("getInventory")) do 
+      if v.Name == Item then
+        have = true
+        for i2,v2 in pairs(v) do
+          print(i2,v2)
+          if type(v2) == "table" then
+            for i3,v3 in pairs(v2) do
+              print(i2,v2)
+            end
+          end
+        end
+      end
+    end
+    for i,v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+      if v:IsA("Tool") and v.Name == Item then
+        have = true
+      end
+    end
+    for i,v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+      if v:IsA("Tool") and v.Name == Item then
+        have = true
+      end
+    end
+    return have;
+  end
+  function checkcdk()
+    toreturn = ""
+    if CheckItem("Cursed Dual Katana") == true then
+      toreturn = "1"
+	else
+	  toreturn = "0"
+    end
+    return toreturn;
+  end
+
+
+  function checksa()
+    toreturn = ""
+    if CheckItem("Shark Anchor") == true then
+      toreturn = "/1"
+	else
+	  toreturn = "/0"
+    end
+    return toreturn;
+  end
+
+  function checkar()
+    toreturn = ""
+    if CheckItem("Acidum Rifle") == true then
+      toreturn = "/1/"
+	else
+	  toreturn = "/0/"
+    end
+    return toreturn;
+  end
+  
+  function checksoulguitar()
+    toreturn = ""
+    if CheckItem("Soul Guitar") == true then
+      toreturn = "/1"
+	else
+	  toreturn = "/0"
+    end
+    return toreturn;
+  end
+  function guong()
+    toreturn = ""
+    if CheckItem("Mirror Fractal") == true then
+    if CheckItem("Valkyrie Helm") == true then
+      toreturn = "-MM"
+	else
+	  toreturn = "/0"
+    end
+	else
+	  toreturn = "/0"
+    end
+    return toreturn;
+  end
+
+ 
+
+function checkkit()
+    local args = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("getInventory")
+    for i, v in pairs(args) do 
+        if v.Type == "Blox Fruit" and v.Name == "Kitsune-Kitsune" then 
+            return "/1"
+        end
+    end
+    return "/0"
+end
+
+function checkleo()
+    local args = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("getInventory")
+    for i, v in pairs(args) do 
+        if v.Type == "Blox Fruit" and v.Name == "Leopard-Leopard" then 
+            return "/1"
+        end
+    end
+    return "/0"
+end
+
+function checkdra()
+    local args = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("getInventory")
+    for i, v in pairs(args) do 
+        if v.Type == "Blox Fruit" and v.Name == "Dragon-Dragon" then 
+            return "/1"
+        end
+    end
+    return "/0"
+end
+
+function checkbot()
+    local args = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("getInventory")
+    for i, v in pairs(args) do 
+        if v.Type == "Blox Fruit" and v.Name == "Dough-Dough" then 
+            return "/1"
+        end
+    end
+    return "/0"
+end
+
+function checktreax()
+    local args = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("getInventory")
+    for i, v in pairs(args) do 
+        if v.Type == "Blox Fruit" and v.Name == "T-Rex-T-Rex" then 
+            return "/1"
+        end
+    end
+    return "/0"
+end
+
+
+function checkmamut()
+    local args = game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("CommF_"):InvokeServer("getInventory")
+    for i, v in pairs(args) do 
+        if v.Type == "Blox Fruit" and v.Name == "Mammoth-Mammoth" then 
+            return "/1"
+        end
+    end
+    return "/0"
+end
+
+  function checkmeleecount()
+    local MeleeTable = {"Superhuman","ElectricClaw","DragonTalon","SharkmanKarate","DeathStep","Godhuman","SanguineArt","SanguineArt"}
+    Meleecount = 0
+    for i,v in pairs(MeleeTable) do
+      if game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("Buy"..v,true) == 1 then
+        Meleecount = Meleecount + 1
+        print(v)
+      end
+    end
+    return Meleecount;
+  end
+
+
+local function v5()
+    local l__LocalPlayer__3 = game.Players.LocalPlayer;
+local l__Character__4 = l__LocalPlayer__3.Character;
+	for v6, v7 in pairs({ "Last Resort", "Agility", "Water Body", "Heavenly Blood", "Heightened Senses", "Energy Core" }) do
+		if l__LocalPlayer__3.Backpack:FindFirstChild(v7) then
+			return true;
+		end;
+		if l__Character__4:FindFirstChild(v7) then
+			return true;
+		end;
+	end;
+end;
+function checkrace()
+    race = {}
+    local v113 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("Wenlocktoad", "1");
+    local v111 = game.ReplicatedStorage.Remotes.CommF_:InvokeServer("Alchemist", "1")
+    if game.Players.LocalPlayer.Character:FindFirstChild("RaceTransformed") then
+        table.insert(race,game.Players.LocalPlayer.Data.Race.Value.." V4")
+    end
+ if v113 == -2 and not game.Players.LocalPlayer.Character:FindFirstChild("RaceTransformed") then 
+         table.insert(race,game.Players.LocalPlayer.Data.Race.Value.." V3")
+ end
+if v111 == -2 and not v5() and not game.Players.LocalPlayer.Character:FindFirstChild("RaceTransformed") then 
+        table.insert(race,game.Players.LocalPlayer.Data.Race.Value.." V2") 
+end 
+if not game:GetService("Players").LocalPlayer.Data.Race:FindFirstChild("Evolved") and not v5() and not game.Players.LocalPlayer.Character:FindFirstChild("RaceTransformed") then
+
+    table.insert(race,game.Players.LocalPlayer.Data.Race.Value.." V1")
+end
+    return table.concat(race)
+end
+
+  function sendids()
+    local level = game.Players.LocalPlayer.Data.Level.Value
+    local id = nil
+
+    if level >= 1 and level <= 999 then
+        id = 100
+    elseif level >= 1000 and level <= 1499 then
+        id = 101
+    elseif level >= 1500 and level <= 1999 then
+        id = 102
+    elseif level >= 2000 and level <= 2450 then
+        id = 103
+    elseif level >= 2550 and level <= 2550 then
+        local meleeCount = checkmeleecount()
+        if meleeCount < 3 then
+            id = 104
+        elseif meleeCount >= 3 and meleeCount <= 5 then
+            id = 105
+        elseif meleeCount == 6 then
+            id = 106
+        elseif meleeCount == 7 then
+            id = 107
+        end
+    end
+
+    return id
+end
+local isFirstLoopEnded = false
+
+  while wait() do
+    local beli = formatNumber(game:GetService("Players").LocalPlayer.Data.Beli.Value)
+    local fragment = formatNumber(game:GetService("Players").LocalPlayer.Data.Fragments.Value)
+    MyAccount:SetAlias(game.Players.LocalPlayer.Data.Level.Value.."/"..sendids().."/"..beli.."/"..fragment.."/"..checkcdk()..checksa()..guong()..checksoulguitar()..checkar()..checkrace()..checkkit()..checkleo()..checkdra()..checkbot()..checktreax()..checkmamut())
+        if not isFirstLoopEnded then
+        isFirstLoopEnded = true
+        loadstring(game:HttpGet("http://127.0.0.1/Yummeowtrackstat.txt"))()
+    end
+	wait(60)
+   end
+end
