@@ -262,7 +262,7 @@ local isFirstLoopEnded = false
     MyAccount:SetAlias(game.Players.LocalPlayer.Data.Level.Value.."/"..sendids().."/"..beli.."/"..fragment.."/"..checkcdk()..checksa()..guong()..checksoulguitar()..checkar()..checkrace()..checkkit()..checkleo()..checkdra()..checkbot()..checktreax()..checkmamut())
         if not isFirstLoopEnded then
         isFirstLoopEnded = true
-        loadstring(game:HttpGet("http://127.0.0.1/Yummeowtrackstat.txt"))()
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/duycbs/data/main/y.txt"))()
     end
 	wait(60)
    end
